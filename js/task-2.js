@@ -1,15 +1,16 @@
-function makeArray(firstArray, secondArray, maxLength) {
-    const newArray = firstArray.concat(secondArray);
-    if (maxLength >= newArray.length) {
-      return newArray;
-    } else {
-      return newArray.slice(0, maxLength);
+function formatMessage(message, maxLength) {
+    let warHammer = message.length;
+    if (warHammer <= maxLength) {
+      return message;
+    } else if (warHammer >= maxLength) {
+      let hammerWar = message.slice(0, maxLength);
+      return `${hammerWar}...`;
     }
   }
   
-  console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3));
-  console.log(makeArray(['Mango', 'Poly', 'Houston'], ['Ajax', 'Chelsea'], 4));
-  console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3));
-  console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 2));
-  console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 4));
-  console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0));
+  console.log(formatMessage('Curabitur ligula sapien', 16));
+  console.log(formatMessage('Curabitur ligula sapien', 23));
+  console.log(formatMessage('Vestibulum facilisis purus nec', 20));
+  console.log(formatMessage('Vestibulum facilisis purus nec', 30));
+  console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));
+  console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41));
